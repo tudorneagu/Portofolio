@@ -14,7 +14,7 @@ body {
 }
 
 .heading-m {
-  @apply text-[24px] leading-[48px] font-bold;
+  @apply text-[30px] leading-[48px] font-bold;
 }
 
 .heading-s {
