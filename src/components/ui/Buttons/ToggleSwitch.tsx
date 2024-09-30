@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 function ToggleSwitch({}) {
   // useEffect(() => {
   //   localStorage.setItem("darkTheme", darkTheme);

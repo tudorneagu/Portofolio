@@ -1,6 +1,6 @@
 import Button from "../ui/Buttons/Button";
 import type { Project } from "../../@types/index.types";
-function ProjectCard({ date, title, description, images }: Project) {
+function ProjectCard({ date, title, description }: Project) {
   return (
     <article className="flex flex-col justify-between bg-white h-[450px] rounded-lg overflow-clip">
       <div className="  flex  flex-col gap-3 pt-5 px-5 ">
