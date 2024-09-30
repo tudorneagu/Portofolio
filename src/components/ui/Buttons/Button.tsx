@@ -3,12 +3,14 @@ function Button({
   onClick,
   type = "button",
   content = "My Button",
+  rounded = "rounded-md",
+  border = "border-transparent border-2 hover:border-btn-hover-stroke ",
 }: ButtonProps) {
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`bg-main rounded-md text-button-m  w-auto py-2 px-4 text-white`}>
+      className={`bg-main  ${border} text-button-m  w-auto py-2 px-4 ${rounded} text-white hover:bg-btn-hover-bg hover:text-btn-hover-stroke  transition-all duration-300`}>
       {content}
     </button>
   );

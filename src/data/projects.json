@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "Amazon Clone",
+    "date": "August 2024",
+    "description": "A full-stack e-commerce application inspired by Amazon.",
+    "stack": [
+      "React",
+      "Tailwind CSS",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Prisma"
+    ],
+    "images": ["amazon_clone_1.png", "amazon_clone_2.png"],
+    "full-description": "This project is a clone of the Amazon website, developed as a full-stack application. It allows users to browse products, add items to the cart, and place orders. The frontend is built using React, styled with Tailwind CSS, and the backend is developed with Node.js, Express, and Prisma connected to a PostgreSQL database."
+  },
+  {
+    "id": 2,
+    "title": "Okanban",
+    "date": "June 2024",
+    "description": "A project management tool inspired by Kanban boards.",
+    "stack": ["React", "Node.js", "Tailwind CSS", "MongoDB"],
+    "images": ["okanban_board.png", "okanban_tasks.png"],
+    "full-description": "Okanban is a project management tool that allows users to create boards, manage tasks, and collaborate in real-time. The frontend is powered by React and Tailwind CSS, while the backend uses Node.js and MongoDB to store project data and manage user accounts."
+  },
+  {
+    "id": 3,
+    "title": "Pokedex",
+    "date": "Mai 2024",
+    "description": "A Pokedex app built using React to showcase Pokemon data.",
+    "stack": ["React", "Tailwind CSS", "REST API"],
+    "images": ["pokedex_home.png", "pokedex_details.png"],
+    "full-description": "This Pokedex app retrieves Pokemon data from an external REST API and displays it in a user-friendly interface. Users can search for Pokemon by name or type and view detailed information about each Pokemon, including stats and abilities."
+  },
+  {
+    "id": 4,
+    "title": "Portfolio Website",
+    "date": "September 2024",
+    "description": "A personal portfolio website showcasing my projects and skills.",
+    "stack": ["React", "Tailwind CSS", "Framer Motion"],
+    "images": ["portfolio_home.png", "portfolio_projects.png"],
+    "full-description": "This portfolio website was developed using React and Tailwind CSS. It features a clean, minimal design with smooth animations powered by Framer Motion. The website includes sections for my projects, skills, and contact information."
+  }
+]

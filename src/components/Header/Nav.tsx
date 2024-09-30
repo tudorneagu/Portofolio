@@ -1,11 +1,21 @@
 function Nav() {
   return (
-    <ul className="flex flex-grow-1 gap-3  list-none">
-      <li>Home</li>
-      <li>About</li>
-      <li>Stack</li>
-      <li>Projects</li>
-      <li>Contact</li>
+    <ul className="flex flex-grow-1 gap-10 list-none">
+      <li className="hover:drop-shadow-3xl hover:font-bold  inline-bloc transition-all min-w-[70px]  cursor-pointer">
+        Home
+      </li>
+      <li className="hover:drop-shadow-3xl hover:font-bold  inline-bloc transition-all min-w-[70px]  cursor-pointer">
+        About
+      </li>
+      <li className="hover:drop-shadow-3xl hover:font-bold  inline-bloc transition-all min-w-[70px]  cursor-pointer">
+        Stack
+      </li>
+      <li className="hover:drop-shadow-3xl hover:font-bold  inline-block transition-all min-w-[70px] cursor-pointer">
+        Projects
+      </li>
+      <li className="hover:drop-shadow-3xl hover:font-bold  inline-bloc transition-all min-w-[70px]  cursor-pointer">
+        Contact
+      </li>
     </ul>
   );
 }

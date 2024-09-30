@@ -1,4 +1,4 @@
-import Button from "./utils/Buttons/Button";
+import Button from "./ui/Buttons/Button";
 
 function Hero() {
   return (

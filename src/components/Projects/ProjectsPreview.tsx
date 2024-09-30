@@ -1,21 +1,22 @@
-import Button from "../utils/Buttons/Button";
+import Button from "../ui/Buttons/Button";
+import ProjectCard from "./ProjectCard";
+import ProjectData from "../../data/projects.json";
+
 function ProjectsPreview() {
   return (
-    <section className="flex justify-between items-center  px-20  bg-bg-light ">
-      <article className="max-w-80 max-h-auto my-10">
-        <img className=" rounded-3xl" src="/tudor.jpg" alt="Image of Tudor" />
+    <section className="flex flex-col gap-14 items-center  py-10 px-20  bg-bg-light  ">
+      <article className="flex gap-4 ">
+        {ProjectData.map((project) => (
+          <ProjectCard
+            key={project.id}
+            date={project.date}
+            title={project.title}
+            description={project.description}
+            images={project.images}
+          />
+        ))}
       </article>
-      <article className="flex flex-col max-w-2xl gap-4 items-start">
-        <h1 className="capitalise heading-m">
-          Hello, I'm Tudor,
-          <br /> Full Stack Developper
-        </h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur. Sodales nam egestas id lectus
-          dictum. Consectetur sit augue quam velit suspendisse.{" "}
-        </p>
-        <Button content="Download Resume" />
-      </article>
+      <Button content="See my work" />
     </section>
   );
 }
