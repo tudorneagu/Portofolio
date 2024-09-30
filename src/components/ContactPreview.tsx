@@ -1,5 +1,5 @@
 import Button from "./ui/Buttons/Button";
-import phoneNumberFormat from "./utils/PhoneNumber";
+import phoneNumberFormat from "./utils/PhoneNumber.ts";
 function ContactPreview() {
   return (
     <section className=" items-center flex flex-col gap-5 justify-center  bg-bg-dark px-20 py-10">

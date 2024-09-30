@@ -15,7 +15,7 @@ function Stack() {
       <article className="grid grid-rows-2 grid-cols-4 my-10 place-items-center pr-[80px]">
         <img
           className="  p-5  bg-bg-light drop-shadow-xl"
-          src="/javascript-line.svg"
+          src="icons/javascript-line.svg"
         />
         <div className=" flex flex-col gap-1 py-5 w-25 h-25 px-5  text-center">
           <p className="text-l-bold">2</p>
@@ -26,7 +26,7 @@ function Stack() {
         </div>
         <img
           className="  p-5  bg-bg-light drop-shadow-xl"
-          src="/database-2-line.svg"
+          src="icons/database-2-line.svg"
         />
         <div className=" flex flex-col gap-1 py-5 w-25 h-25 px-5  text-center">
           <p className="text-l-bold">Various </p>
@@ -37,7 +37,7 @@ function Stack() {
         </div>
         <img
           className="  p-5 bg-bg-light drop-shadow-xl"
-          src="/reactjs-fill.svg"
+          src="icons/reactjs-fill.svg"
         />
         <div className=" flex flex-col gap-1 py-5 w-25 h-25 px-5  text-center">
           <p className="text-l-bold">SQL</p>
@@ -46,7 +46,7 @@ function Stack() {
         </div>
         <img
           className=" p-5  rotate-180 bg-bg-light drop-shadow-xl"
-          src="/route-line.svg"
+          src="icons/route-line.svg"
         />{" "}
       </article>
     </section>

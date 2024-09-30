@@ -7,6 +7,7 @@ export default {
       colors: {
         main: "#0F1622",
         medium: "#626262",
+        ligth: "#E0E2E5",
         "bg-light": "#F4F5F7",
         "bg-dark": "#E0E2E5",
         "btn-hover-bg": "#F9FAFC",

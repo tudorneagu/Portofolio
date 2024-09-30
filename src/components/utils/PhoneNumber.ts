@@ -1,4 +1,4 @@
-function phoneNumberFormat(phoneNumber) {
+function phoneNumberFormat(phoneNumber: string) {
   return `+33 ${phoneNumber.slice(0, 1)} ${phoneNumber.slice(
     1,
     3
