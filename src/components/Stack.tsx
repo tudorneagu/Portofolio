@@ -2,7 +2,7 @@ import Button from "./ui/Buttons/Button";
 function Stack() {
   return (
     <section className="flex justify-between  bg-bg-dark px-20 py-6 items-center ">
-      <article className="flex flex-col max-w-2xl gap-4 items-start max-w-lg">
+      <article className="flex flex-col  gap-4 items-start max-w-lg">
         <h1 className="capitalise heading-m">
           Experienced Across Multiple Tools
         </h1>

@@ -5,6 +5,9 @@ import Stack from "../components/Stack";
 function Home() {
   return (
     <div className="flex flex-col  ">
+      <div>
+        <img />
+      </div>
       <Hero />
       <div className="relative h-1 bg-transparent">
         <div className="absolute inset-0 backdrop-blur-md h-full bg-gradient-to-b from-bg-light to-bg-dark "></div>
