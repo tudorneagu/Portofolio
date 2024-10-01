@@ -1,50 +1,24 @@
-# React + TypeScript + Vite
+# Tudor Neagu - Portfolio - WIP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my portfolio repository! This site showcases the projects and skills I've developed as a full-stack developer.
 
-Currently, two official plugins are available:
+## 🚀 [Live Site](https://tudor-neagu.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Feel free to explore my work on the live version of the portfolio. It's a **Work in Progress (WIP)** as I continuously add more projects and refine the design.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend:** React, Tailwind CSS
+- **Other tools:** TypeScript, Mocha, Vercel, EmailJS, React-intl
 
-- Configure the top-level `parserOptions` property like this:
+## 🔧 Features
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Project gallery
+- Detailed project descriptions
+- Downloadable resume
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Stay tuned for more updates!
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 📬 Contact
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Feel free to reach out via [LinkedIn](https://www.linkedin.com/in/tudor-neagu/) for any inquiries or collaborations.
