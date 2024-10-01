@@ -17,7 +17,7 @@ function Contact() {
             <label className="text-m-bold">First Name</label>
             <input
               type="text"
-              className="border border-medium rounded-md px-2 py-1 text-m-regular text-medium"
+              className="border border-light focus:outline-medium rounded-md px-2 py-1 text-m-regular text-medium"
               placeholder="Your First Name"
               required
             />
@@ -26,7 +26,7 @@ function Contact() {
             <label className="text-m-bold">Last Name</label>
             <input
               type="text"
-              className="border border-medium rounded-md px-2 py-1 text-m-regular text-medium"
+              className="border border-light focus:outline-medium  rounded-md px-2 py-1 text-m-regular text-medium"
               placeholder="Your Name"
               required
             />
@@ -35,7 +35,7 @@ function Contact() {
             <label className="text-m-bold">Email</label>
             <input
               type="email"
-              className="border border-medium rounded-md px-2 py-1 text-m-regular text-medium"
+              className="border border-light focus:outline-medium rounded-md px-2 py-1 text-m-regular text-medium"
               placeholder="nicole.martin@mail.fr"
               required
             />
@@ -45,7 +45,7 @@ function Contact() {
           <label className="text-m-bold">Message</label>
           <textarea
             rows={10}
-            className="border border-medium rounded-md p-2 text-m-regular text-medium"
+            className="border border-light focus:outline-medium  rounded-md p-2 text-m-regular text-medium"
             placeholder="Your message"
             required
           />
