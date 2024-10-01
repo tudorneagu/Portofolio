@@ -3,12 +3,6 @@ import Hero from "../components/Hero";
 import ProjectsPreview from "../components/Projects/ProjectsPreview";
 import Stack from "../components/Stack";
 function Home() {
-  function handleGitHub() {
-    const link = document.createElement("a");
-    link.href = "/CV - Tudor Neagu.pdf";
-    link.download = "Tudor_Neagu_Resume.pdf";
-    link.click();
-  }
   return (
     <div className="flex flex-col relative ">
       <div className=" h-11 w-11  absolute right-3 top-24 cursor-pointer  ">
