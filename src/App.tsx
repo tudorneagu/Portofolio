@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -10,11 +11,14 @@ import Contact from "./pages/Contact";
 import "./index.css";
 
 function App() {
+  const [langFr, setLangFr] = useState<boolean>(true);
+
   return (
-    <div className=" flex justify-around w-screen">
-      <div className="w-[1500px]  ">
-        <Header />
-        <main>
+    <div className="min-h-screen flex flex-col justify-between w-full">
+      {/* Container for Header, Main Content, and Footer */}
+      <div className="w-full max-w-[1500px] mx-auto flex-grow flex flex-col">
+        <Header langFr={langFr} setLangFr={setLangFr} />
+        <main className="flex flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -23,6 +27,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
+        {/* Footer */}
         <Footer />
       </div>
     </div>
