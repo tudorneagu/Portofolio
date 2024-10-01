@@ -1,6 +1,12 @@
 import Button from "./ui/Buttons/Button";
 
 function Hero() {
+  function handleDownload() {
+    const link = document.createElement("a");
+    link.href = "/CV - Tudor Neagu.pdf";
+    link.download = "Tudor_Neagu_Resume.pdf";
+    link.click();
+  }
   return (
     <section className="flex justify-between items-center  px-20  bg-bg-light ">
       <article className="max-w-80 max-h-auto my-10">
@@ -15,7 +21,7 @@ function Hero() {
           Lorem ipsum dolor sit amet consectetur. Sodales nam egestas id lectus
           dictum. Consectetur sit augue quam velit suspendisse.{" "}
         </p>
-        <Button content="Download Resume" />
+        <Button content="Download my Resume" onClick={handleDownload} />
       </article>
     </section>
   );
