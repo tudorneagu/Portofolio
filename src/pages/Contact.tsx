@@ -1,5 +1,4 @@
 import Button from "../components/ui/Buttons/Button";
-import Hero from "../components/Hero";
 
 function Contact() {
   return (
