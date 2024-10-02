@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import Button from "./ui/Buttons/Button";
 
 function Hero() {
+  const { t } = useTranslation();
   function handleDownload() {
     const link = document.createElement("a");
     link.href = "/CV - Tudor Neagu.pdf";
@@ -12,16 +14,13 @@ function Hero() {
       <article className="max-w-80 max-h-auto my-10">
         <img className=" rounded-3xl" src="/tudor.jpg" alt="Image of Tudor" />
       </article>
-      <article className="flex flex-col max-w-2xl gap-4 items-start">
+      <article className="flex flex-col max-w-[620px] pr-12 gap-4 items-start">
         <h1 className="capitalise heading-m">
-          Hello, I'm Tudor,
-          <br /> Full Stack Developper
+          {t("hero_welcome_message")}
+          <br /> {t("hero_position")}
         </h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur. Sodales nam egestas id lectus
-          dictum. Consectetur sit augue quam velit suspendisse.{" "}
-        </p>
-        <Button content="Download my Resume" onClick={handleDownload} />
+        <p>{t("hero_description")}</p>
+        <Button content={t("hero_resume")} onClick={handleDownload} />
       </article>
     </section>
   );

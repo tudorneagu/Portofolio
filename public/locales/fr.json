@@ -1,0 +1,12 @@
+{
+  "nav_home": "Accueil",
+  "nav_about": "À propos",
+  "nav_stack": "Stack",
+  "nav_projects": "Projets",
+  "nav_contact": "Contact",
+
+  "hero_welcome_message": "Salut, je m'appele Tudor,",
+  "hero_position": "Developpeur Full-Stack,",
+  "hero_description": "Je suis actuellement à la recherche d'un emploi ou d'un stage pour appliquer mes compétences dans des projets concrets",
+  "hero_resume": "Télechargez mon CV"
+}

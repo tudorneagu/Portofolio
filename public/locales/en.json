@@ -1,0 +1,12 @@
+{
+  "nav_home": "Home",
+  "nav_about": "About",
+  "nav_stack": "Stack",
+  "nav_projects": "Projects",
+  "nav_contact": "Contact",
+
+  "hero_welcome_message": "Hello, I'm Tudor,",
+  "hero_position": "Full Stack Developper,",
+  "hero_description": " I am currently seeking a job or internship to apply my skills in real-world projects.",
+  "hero_resume": "Download my Resume"
+}

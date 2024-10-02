@@ -8,7 +8,7 @@ function Language({
 }) {
   return (
     <div className="bg-light-gray rounded-lg h-12 flex items-center justify-center space-x-4 ">
-      <p>Fn</p>
+      <p>En</p>
       <ToggleSwitch langFr={langFr} setLangFr={setLangFr} />
       <p>FR</p>
     </div>
