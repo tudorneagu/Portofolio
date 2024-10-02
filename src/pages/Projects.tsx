@@ -1,5 +1,10 @@
 function Projects() {
-  return <div>Projects</div>;
+  return (
+    <div className="text-l-bold items-center w-full justify-center flex">
+      {" "}
+      Page under Construction
+    </div>
+  );
 }
 
 export default Projects;

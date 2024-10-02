@@ -2,13 +2,10 @@ import Button from "../ui/Buttons/Button";
 import type { Project } from "../../@types/index.types";
 function ProjectCard({ date, title, description }: Project) {
   return (
-    <article className="flex flex-col justify-between bg-white h-[450px] rounded-lg overflow-clip">
+    <article className="flex flex-col justify-between bg-white h-[450px] rounded-lg overflow-clip max-w-80">
       <div className="  flex  flex-col gap-3 pt-5 px-5 ">
         <div className="  flex  flex-col gap-2 ">
-          <img
-            className="border-solid border-2 border-black mb-5"
-            src="/about.png"
-          />
+          <img className=" mb-5" src="/about.png" />
           <div className="flex justify-between">
             <h3 className="text-l-bold">{title}</h3>
             <p className="text-m-bold text-medium">{date}</p>

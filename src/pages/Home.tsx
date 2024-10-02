@@ -1,7 +1,7 @@
 import ContactPreview from "../components/ContactPreview";
 import Hero from "../components/Hero";
 import ProjectsPreview from "../components/Projects/ProjectsPreview";
-import Stack from "../components/Stack";
+import Stack from "../components/StackPreview";
 
 function Home() {
   return (

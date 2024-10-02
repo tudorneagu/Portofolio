@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
-import Stack from "./components/Stack";
+import Stack from "./pages/Stack";
 import Contact from "./pages/Contact";
 import "./index.css";
 import "./i18n";

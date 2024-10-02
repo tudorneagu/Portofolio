@@ -43,11 +43,8 @@ function Contact() {
   return (
     <section className="flex w-full bg-bg-light items-center justify-center gap-52 px-20">
       <article className="max-w-80  flex flex-col gap-5">
-        <img className=" rounded-3xl" src="/tudor.jpg" alt="Image of Tudor" />
-        <div className="flex flex-col gap-4">
-          <h1 className="heading-m"> {t("contact_h1")}</h1>
-          <p className="text-l-regular">{t("contact_p")}</p>
-        </div>
+        <h1 className="heading-m"> {t("contact_h1")}</h1>
+        <p className="text-l-regular">{t("contact_p")}</p>
       </article>
       <form className="flex flex-col gap-8 min-w-[400px]" onSubmit={sendEmail}>
         <div className="flex flex-col gap-3">

@@ -1,7 +1,7 @@
 import Button from "../ui/Buttons/Button";
 import ProjectCard from "./ProjectCard";
 import ProjectData from "../../data/projects.json";
-
+import { NavLink } from "react-router-dom";
 function ProjectsPreview() {
   return (
     <section className="flex flex-col gap-14 items-center  py-10 px-20  bg-bg-light  ">
@@ -16,7 +16,9 @@ function ProjectsPreview() {
           />
         ))}
       </article>
-      <Button content="See my work" />
+      <NavLink to={"/projects"}>
+        <Button content="See my work" />
+      </NavLink>
     </section>
   );
 }
