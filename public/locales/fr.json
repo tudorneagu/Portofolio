@@ -16,6 +16,10 @@
   "stack_methods_2": "Approches",
   "stack_button": "Stack & Compétences",
 
+  "about_title": "Mon Parcours",
+  "about_description_1": "Après une carrière enrichissante en architecture, je me suis reconverti dans le développement web full-stack, combinant mes compétences en design et en résolution de problèmes avec une passion pour la technologie. Mon parcours en architecture me permet d'aborder les défis avec créativité et méthode, appliquant la même attention aux détails et la même pensée stratégique aux solutions numériques. ",
+  "about_description_2": " En associant ces atouts à une expertise technique, je conçois des applications évolutives et conviviales. Mon expérience dans la gestion de projets complexes a affiné ma capacité à fournir des résultats à la fois pratiques et innovants, garantissant des solutions efficaces qui répondent aux besoins des utilisateurs tout en dépassant leurs attentes.",
+
   "contact_firstName": "Prénom",
   "contact_p_firstName": "Votre prénom",
   "contact_lastName": "Nom",
