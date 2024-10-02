@@ -6,6 +6,7 @@ export interface ButtonProps {
   content?: string;
   rounded?: string;
   border?: string;
+  value?: string;
 }
 
 export interface Project {
