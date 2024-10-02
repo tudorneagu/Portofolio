@@ -1,16 +1,13 @@
+import { useTranslation } from "react-i18next";
 import Button from "./ui/Buttons/Button";
 function Stack() {
+  const { t } = useTranslation();
   return (
-    <section className="flex justify-between  bg-bg-dark px-20 py-6 items-center ">
+    <section className="flex justify-between bg-bg-dark px-20 py-6 items-center ">
       <article className="flex flex-col  gap-4 items-start max-w-lg">
-        <h1 className="capitalise heading-m">
-          Experienced Across Multiple Tools
-        </h1>
-        <p>
-          Bringing creativity and technical profieciency to building responsive
-          web applications and enhancing user experiences{" "}
-        </p>
-        <Button content="Knowledge and Skills" />
+        <h1 className="capitalise heading-m">{t("stack_title")}</h1>
+        <p>{t("stack_description")}</p>
+        <Button content={t("stack_button")} />
       </article>
       <article className="grid grid-rows-2 grid-cols-4 my-10 place-items-center pr-[80px]">
         <img
@@ -29,8 +26,8 @@ function Stack() {
           src="icons/database-2-line.svg"
         />
         <div className=" flex flex-col gap-1 py-5 w-25 h-25 px-5  text-center">
-          <p className="text-l-bold">Various </p>
-          <p>Approaches</p>
+          <p className="text-l-bold">{t("stack_methods_1")} </p>
+          <p>{t("stack_methods_2")}</p>
         </div>
         <div className=" flex flex-col gap-1 py-5 w-25 h-25 px-5  text-center">
           <p className="text-l-bold">Node.JS</p>

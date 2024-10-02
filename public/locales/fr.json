@@ -5,8 +5,28 @@
   "nav_projects": "Projets",
   "nav_contact": "Contact",
 
-  "hero_welcome_message": "Salut, je m'appele Tudor,",
-  "hero_position": "Developpeur Full-Stack,",
+  "hero_welcome_message": "Salut, moi c'est Tudor,",
+  "hero_position": "Développeur Full-Stack,",
   "hero_description": "Je suis actuellement à la recherche d'un emploi ou d'un stage pour appliquer mes compétences dans des projets concrets",
-  "hero_resume": "Télechargez mon CV"
+  "hero_resume": "Télechargez mon CV",
+
+  "stack_title": "Expérimenté avec diverses technologies",
+  "stack_description": "Alliant créativité et expertise technique pour développer des applications web réactives et améliorer l'expérience utilisateur",
+  "stack_methods_1": "Divers",
+  "stack_methods_2": "Approches",
+  "stack_button": "Stack & Compétences",
+
+  "contact_firstName": "Prénom",
+  "contact_p_firstName": "Votre prénom",
+  "contact_lastName": "Nom",
+  "contact_p_lastName": "Votre nom",
+  "contact_email": "E-mail",
+  "contact_p_email": "nicole.martin@mail.fr",
+  "contact_message": "Message",
+  "contact_p_message": "Votre message",
+  "contact_button": "Envoyer le messsage",
+  "contact_h1": "Travaillons ensemble !",
+  "contact_p": "J'ai hâte de recevoir ton message",
+
+  "footer_copyright": "© Copyright 2024. Tous les droits reservés"
 }

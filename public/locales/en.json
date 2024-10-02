@@ -8,5 +8,25 @@
   "hero_welcome_message": "Hello, I'm Tudor,",
   "hero_position": "Full Stack Developper,",
   "hero_description": " I am currently seeking a job or internship to apply my skills in real-world projects.",
-  "hero_resume": "Download my Resume"
+  "hero_resume": "Download my Resume",
+
+  "stack_title": " Experienced Across Multiple Tools",
+  "stack_description": "Bringing creativity and technical profieciency to building responsive web applications and enhancing user experiences",
+  "stack_methods_1": "Various",
+  "stack_methods_2": "Approaches",
+  "stack_button": "Stack & Skills",
+
+  "contact_firstName": "First Name",
+  "contact_p_firstName": "Your First Name",
+  "contact_lastName": "Last Name",
+  "contact_p_lastName": "Your Name",
+  "contact_email": "E-mail",
+  "contact_p_email": "bob.newton@mail.com",
+  "contact_message": "Message",
+  "contact_p_message": "Your message",
+  "contact_button": "Send Message",
+  "contact_h1": "Let's Work Together !",
+  "contact_p": "I'm looking foward to your message",
+
+  "footer_copyright": "© Copyright 2024. All rights Reserved."
 }
