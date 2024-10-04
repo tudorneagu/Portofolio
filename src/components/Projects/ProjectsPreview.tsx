@@ -15,6 +15,7 @@ function ProjectsPreview() {
             title={project.title}
             description={project.description}
             images={project.images}
+            link={project.link}
           />
         ))}
       </article>

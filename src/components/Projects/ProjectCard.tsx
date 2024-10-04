@@ -2,6 +2,15 @@ import Button from "../ui/Buttons/Button";
 import type { Project } from "../../@types/index.types";
 
 function ProjectCard({ date, title, description, link }: Project) {
+  const handleClick = () => {
+    if (link && typeof link === "string") {
+      const validLink = link.startsWith("http") ? link : `https://${link}`;
+      window.open(validLink, "_blank");
+    } else {
+      console.error("Invalid link provided:", link);
+    }
+  };
+
   return (
     <article className="flex flex-col justify-between bg-white h-[450px] rounded-lg overflow-clip max-w-80">
       <div className="  flex  flex-col gap-3 pt-5 px-5 ">
@@ -19,9 +28,7 @@ function ProjectCard({ date, title, description, link }: Project) {
           content="View Live Demo"
           rounded="rounded-tl-lg"
           border=" border-2 border-b-0 border-r-0"
-          onClick={() => {
-            window.open(link, "_blank");
-          }}
+          onClick={handleClick}
         />
       </div>
     </article>
