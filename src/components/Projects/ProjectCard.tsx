@@ -1,6 +1,8 @@
 import Button from "../ui/Buttons/Button";
 import type { Project } from "../../@types/index.types";
-function ProjectCard({ date, title, description }: Project) {
+import { useNavigate } from "react-router-dom";
+function ProjectCard({ date, title, description, link }: Project) {
+  const navigate = useNavigate();
   return (
     <article className="flex flex-col justify-between bg-white h-[450px] rounded-lg overflow-clip max-w-80">
       <div className="  flex  flex-col gap-3 pt-5 px-5 ">
@@ -18,6 +20,9 @@ function ProjectCard({ date, title, description }: Project) {
           content="View Live Demo"
           rounded="rounded-tl-lg"
           border=" border-2 border-b-0 border-r-0"
+          onClick={() => {
+            navigate(`${link}`);
+          }}
         />
       </div>
     </article>
