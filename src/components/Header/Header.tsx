@@ -10,7 +10,7 @@ function Header({
   setLangFr: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
-    <header className="flex  justify-between  items-center py-5 lg:py-5 px-4 lg:px-20  bg-bg-light z-30 ">
+    <header className="flex  justify-between  items-center py-5 lg:py-5 px-10 lg:px-20  bg-bg-light z-30 ">
       <div className="flex items-center gap-1 lg:heading-s">
         <Logo />
         <p className=" text-l-regular animate-blink">|</p>
