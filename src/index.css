@@ -30,6 +30,14 @@ body {
   @apply text-[12px] leading-[18px] font-medium;
 }
 
+.text-xl-regular {
+  @apply text-[24px] leading-[18px];
+}
+
+.text-xl-bold {
+  @apply text-[24px] leading-[18px] font-bold;
+}
+
 .text-l-regular {
   @apply text-[18px] leading-[18px];
 }

@@ -20,8 +20,8 @@ function App() {
   }, []);
   console.log(langFr);
   return (
-    <div className="min-h-screen flex flex-col justify-between w-full">
-      <div className="w-full max-w-[1500px] mx-auto flex-grow flex flex-col">
+    <div className="min-h-screen flex flex-col justify-between w-full overflow-hidden">
+      <div className=" w-full max-w-[1500px] mx-auto flex-grow flex flex-col">
         <Header langFr={langFr} setLangFr={setLangFr} />
         <main className="flex flex-grow">
           <Routes>

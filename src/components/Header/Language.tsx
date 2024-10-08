@@ -7,7 +7,7 @@ function Language({
   setLangFr: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
-    <div className="bg-light-gray rounded-lg h-12 flex items-center justify-center space-x-4 ">
+    <div className="hidden  bg-light-gray rounded-lg h-12 lg:flex items-center justify-center space-x-4  ">
       <p>En</p>
       <ToggleSwitch langFr={langFr} setLangFr={setLangFr} />
       <p>FR</p>

@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 function ProjectsPreview() {
   const { t } = useTranslation();
   return (
-    <section className="flex flex-col gap-14 items-center  py-10 px-20  bg-bg-light  ">
-      <article className="flex gap-4 ">
+    <section className="flex flex-col gap-14 items-center  py-10 px-10 lg:px-20  bg-bg-light  ">
+      <article className="flex lg:flex-row flex-col gap-4 ">
         {ProjectData.map((project) => (
           <ProjectCard
             key={project.id}

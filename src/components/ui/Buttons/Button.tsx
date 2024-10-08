@@ -11,7 +11,7 @@ function Button({
     <button
       type={type}
       onClick={onClick}
-      className={`bg-main  ${border} text-button-m  w-auto py-2 px-4 ${rounded} text-white hover:bg-btn-hover-bg hover:text-btn-hover-stroke  transition-all duration-300 focus:bg-medium focus:outline-medium`}
+      className={`bg-main  ${border} lg:text-button-m  w-auto py-2 px-4 ${rounded} text-white hover:bg-btn-hover-bg hover:text-btn-hover-stroke  transition-all duration-300 focus:bg-medium focus:outline-medium`}
       value={value}>
       {content}
     </button>

@@ -41,12 +41,12 @@ function Contact() {
   };
   const { t } = useTranslation();
   return (
-    <section className="flex w-full bg-bg-light items-center justify-center gap-52 px-20">
+    <section className="flex flex-col lg:flex-row  flex-grow lg:w-full bg-bg-light items-center justify-center gap-10 lg:gap-52 px-10 lg:px-20">
       <article className="max-w-80  flex flex-col gap-5">
         <h1 className="heading-m"> {t("contact_h1")}</h1>
         <p className="text-l-regular">{t("contact_p")}</p>
       </article>
-      <form className="flex flex-col gap-8 min-w-[400px]" onSubmit={sendEmail}>
+      <form className="flex flex-col gap-8 min-w-[300px]" onSubmit={sendEmail}>
         <div className="flex flex-col gap-3">
           <div className="flex flex-col gap-1">
             <label className="text-m-bold">{t("contact_firstName")}</label>

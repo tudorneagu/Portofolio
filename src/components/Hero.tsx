@@ -10,11 +10,11 @@ function Hero() {
     link.click();
   }
   return (
-    <section className="flex justify-between items-center  px-20  bg-bg-light ">
+    <section className="flex flex-col lg:flex-row justify-between items-center  px-10 lg:px-20 pb-10 lg:pb-0 bg-bg-light ">
       <article className="max-w-80 max-h-auto my-10">
         <img className=" rounded-3xl" src="/tudor.jpg" alt="Image of Tudor" />
       </article>
-      <article className="flex flex-col max-w-[620px] pr-12 gap-4 items-start">
+      <article className="flex flex-col max-w-[620px] lg:pr-12 gap-4 items-start">
         <h1 className="capitalise heading-m">
           {t("hero_welcome_message")}
           <br /> {t("hero_position")}

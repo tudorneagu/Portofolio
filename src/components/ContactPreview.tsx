@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 function ContactPreview() {
   const { t } = useTranslation();
   return (
-    <section className=" items-center flex flex-col gap-5 justify-center  bg-bg-dark px-20 py-10">
+    <section className=" items-center flex flex-col gap-5 justify-center  bg-bg-dark px-10 lg:px-20 py-10">
       <h1 className="heading-m"> {t("hero_contact_title")}</h1>
       <NavLink to={`/contact`}>
         <Button content={t("hero_contact_button")} />
