@@ -12,7 +12,7 @@ function ProjectCard({ date, title, description, link }: Project) {
   };
 
   return (
-    <article className="flex flex-col justify-between bg-white h-[450px] rounded-lg overflow-clip max-w-80">
+    <article className="flex flex-col justify-between bg-white h-[450px]  rounded-lg overflow-clip max-w-80">
       <div className="  flex  flex-col gap-3 pt-5 px-5 ">
         <div className="  flex  flex-col gap-2 ">
           <img className=" mb-5" src="/about.png" />

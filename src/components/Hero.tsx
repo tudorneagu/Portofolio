@@ -10,7 +10,7 @@ function Hero() {
     link.click();
   }
   return (
-    <section className="flex flex-col lg:flex-row justify-between items-center  px-10 lg:px-20 pb-10 lg:pb-0 bg-bg-light ">
+    <section className="flex flex-col lg:flex-row justify-between items-start lg:items-center  gap-10 px-10 lg:px-20  pb-10 lg:pb-0 bg-bg-light ">
       <article className="max-w-80 max-h-auto my-10">
         <img className=" rounded-3xl" src="/tudor.jpg" alt="Image of Tudor" />
       </article>
