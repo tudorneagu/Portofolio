@@ -30,11 +30,11 @@ function Nav({
       </div>
 
       {/* Mobile Menu */}
-      <div className="absolute z-20 -right-4  w-screen top-10">
+      <div className="absolute z-10 -right-10  w-screen top-10">
         <ul
           className={`${
             isOpen ? "block" : "hidden"
-          } lg:hidden flex flex-col gap-10 bg-bg-light justify-around  py-36 drop-shadow-3xl`}>
+          } lg:hidden flex flex-col gap-10 bg-bg-light justify-around  py-9 border-b border-medium`}>
           <NavLink
             onClick={() => {
               setIsOpen(false);
@@ -95,7 +95,9 @@ function Nav({
             }>
             {t("nav_contact")}
           </NavLink>
-          <Language langFr={langFr} setLangFr={setLangFr} />
+          <div className="mt-5">
+            <Language langFr={langFr} setLangFr={setLangFr} />
+          </div>
         </ul>
       </div>
 

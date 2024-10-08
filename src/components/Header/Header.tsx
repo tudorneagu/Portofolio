@@ -16,8 +16,9 @@ function Header({
         <p className=" text-l-regular animate-blink">|</p>
       </div>
       <Nav langFr={langFr} setLangFr={setLangFr} />
-
-      <Language langFr={langFr} setLangFr={setLangFr} />
+      <div className="hidden lg:block">
+        <Language langFr={langFr} setLangFr={setLangFr} />
+      </div>
     </header>
   );
 }
