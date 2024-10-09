@@ -13,14 +13,7 @@
       "PostgreSQL",
       "Prisma"
     ],
-    "images": [
-      "main.png",
-      "search.png",
-      "cart.png",
-      "login.png",
-      "accountDetails.png",
-      "addProduct.png"
-    ],
+    "images": ["home.png", "cart.png", "product.png", "accountDetails.png"],
     "full-description": "This project is a clone of the Amazon website, developed as a full-stack application. It allows users to browse products, add items to the cart, and place orders. The frontend is built using React, styled with Tailwind CSS, and the backend is developed with Node.js, Express, and Prisma connected to a PostgreSQL database.",
     "link": "omazon-tudor-neagu.vercel.app/"
   },
@@ -45,7 +38,7 @@
     "date": "Mai 2024",
     "description": "An app that allows you to track destinations that you have visited around the world",
     "stack": ["React", "Tailwind CSS", "REST API"],
-    "images": ["pokedex_home.png", "pokedex_details.png"],
+    "images": ["home.png", "login.png", "cityList.png", "addCity.png"],
     "full-description": "This Pokedex app retrieves Pokemon data from an external REST API and displays it in a user-friendly interface. Users can search for Pokemon by name or type and view detailed information about each Pokemon, including stats and abilities.",
     "link": "world-wise.vercel.app/"
   },
