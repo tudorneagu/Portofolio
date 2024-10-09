@@ -30,7 +30,13 @@
     "date": "June 2024",
     "description": "A project management tool inspired by Kanban boards.",
     "stack": ["React", "Node.js", "Tailwind CSS", "MongoDB"],
-    "images": ["okanban_board.png", "okanban_tasks.png"],
+    "images": [
+      "desktop.jpg",
+      "viewTask.jpg",
+      "addTask.jpg",
+      "mobile.jpg",
+      "tablet.jpg"
+    ],
     "full-description": "Okanban is a project management tool that allows users to create boards, manage tasks, and collaborate in real-time. The frontend is powered by React and Tailwind CSS, while the backend uses Node.js and MongoDB to store project data and manage user accounts."
   },
   {
