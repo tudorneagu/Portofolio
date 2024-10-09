@@ -1,5 +1,5 @@
 import Button from "../ui/Buttons/Button";
-import Caroussel from "../ui/caroussel";
+import Caroussel from "../ui/Caroussel";
 import type { Project } from "../../@types/index.types";
 
 function ProjectCard({ date, title, description, link, images }: Project) {
