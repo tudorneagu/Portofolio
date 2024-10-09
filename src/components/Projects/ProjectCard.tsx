@@ -1,7 +1,8 @@
 import Button from "../ui/Buttons/Button";
+import Caroussel from "../ui/Caroussel";
 import type { Project } from "../../@types/index.types";
 
-function ProjectCard({ date, title, description, link }: Project) {
+function ProjectCard({ date, title, description, link, images }: Project) {
   const handleClick = () => {
     if (link && typeof link === "string") {
       const validLink = link.startsWith("http") ? link : `https://${link}`;
@@ -12,11 +13,11 @@ function ProjectCard({ date, title, description, link }: Project) {
   };
 
   return (
-    <article className="flex flex-col justify-between  bg-white h-[450px]  rounded-lg overflow-clip w-full">
+    <article className="flex flex-col justify-between  bg-bg-dark h-[450px]  rounded-lg overflow-clip w-full">
       <div className="  flex  flex-col gap-3 pt-5 px-5 ">
         <div className="  flex  flex-col gap-2 ">
-          <img className=" mb-5" src="/about.png" />
-          <div className="flex justify-between">
+          <Caroussel images={images} title={title} />
+          <div className="flex justify-between mt-4">
             <h3 className="text-l-bold">{title}</h3>
             <p className="text-m-bold text-medium">{date}</p>
           </div>

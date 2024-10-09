@@ -13,7 +13,14 @@
       "PostgreSQL",
       "Prisma"
     ],
-    "images": ["amazon_clone_1.png", "amazon_clone_2.png"],
+    "images": [
+      "main.png",
+      "search.png",
+      "cart.png",
+      "login.png",
+      "accountDetails.png",
+      "addProduct.png"
+    ],
     "full-description": "This project is a clone of the Amazon website, developed as a full-stack application. It allows users to browse products, add items to the cart, and place orders. The frontend is built using React, styled with Tailwind CSS, and the backend is developed with Node.js, Express, and Prisma connected to a PostgreSQL database.",
     "link": "omazon-tudor-neagu.vercel.app/"
   },
