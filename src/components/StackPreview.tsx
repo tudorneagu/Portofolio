@@ -1,13 +1,18 @@
 import { useTranslation } from "react-i18next";
 import Button from "./ui/Buttons/Button";
+import { useNavigate } from "react-router-dom";
 function Stack() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const handleNav = () => {
+    navigate("/stack");
+  };
   return (
     <section className="flex justify-between bg-bg-dark px-10 lg:px-20 py-6 items-center ">
       <article className="flex flex-col  gap-4 items-start max-w-lg">
         <h1 className="capitalise heading-m">{t("stack_title")}</h1>
         <p>{t("stack_description")}</p>
-        <Button content={t("stack_button")} />
+        <Button content={t("stack_button")} onClick={handleNav} />
       </article>
       <article className="hidden lg:grid grid-rows-2 grid-cols-4 my-10 place-items-center pr-[80px]">
         <img

@@ -1,5 +1,6 @@
 import Button from "../ui/Buttons/Button";
 import Caroussel from "../ui/Caroussel";
+import { useTranslation } from "react-i18next";
 import type { Project } from "../../@types/index.types";
 
 function ProjectCard({ date, title, description, link, images }: Project) {
@@ -11,6 +12,8 @@ function ProjectCard({ date, title, description, link, images }: Project) {
       console.error("Invalid link provided:", link);
     }
   };
+
+  const { t } = useTranslation();
 
   return (
     <article className="flex flex-col justify-between  bg-bg-dark h-[450px]  rounded-lg overflow-clip w-full">
@@ -24,9 +27,18 @@ function ProjectCard({ date, title, description, link, images }: Project) {
         </div>
         <p className="text-m-regular  text-medium">{description}</p>
       </div>
-      <div className=" flex justify-end">
+
+      <div className=" flex  justify-between items-center">
+        <div>
+          <a
+            className="mb-5 ml-4 text-m-regular  text-medium hover:font-bold hover:text-black "
+            href={`/projects/${title}`}>
+            {t("projects_preview_more")}
+          </a>
+        </div>
+
         <Button
-          content="View Live Demo"
+          content={t("projects_preview_demo")}
           rounded="rounded-tl-lg"
           border=" border-2 border-b-0 border-r-0"
           onClick={handleClick}

@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Stack from "./pages/Stack";
 import Contact from "./pages/Contact";
+import ProjectDetails from "./components/Projects/ProjectDetails";
 import "./index.css";
 import "./i18n";
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/stack" element={<Stack />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/projects/:title" element={<ProjectDetails />} />
           </Routes>
         </main>
         <Footer />
