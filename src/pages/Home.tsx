@@ -6,7 +6,7 @@ import Stack from "../components/StackPreview";
 function Home() {
   return (
     <div className="flex flex-col relative w-full">
-      <div className=" lg:h-11 lg:w-11 h-9 w-9  absolute right-4 lg:right-8 top-40 lg:top-24 cursor-pointer  ">
+      <div className=" lg:h-11 lg:w-11 h-9 w-9  absolute right-6 lg:right-8 top-40 lg:top-24 cursor-pointer  ">
         <a href="https://github.com/tudorneagu" target="blank">
           <svg
             className=" mb-4 inset-0 h-full w-full  transition-all duration-300 hover:fill-none hover:stroke-medium stroke-none fill-medium border-medium lg:border-light hover:border-medium  border-2 rounded-full p-1 "
