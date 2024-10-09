@@ -11,11 +11,11 @@ export interface ButtonProps {
 
 export interface Project {
   id?: number;
-  title?: string;
+  title?: string | undefined;
   date?: string;
   description?: string;
   stack?: string[];
-  images?: string[];
+  images?: string[] | undefined;
   link?: string;
   "full-description"?: string;
 }
