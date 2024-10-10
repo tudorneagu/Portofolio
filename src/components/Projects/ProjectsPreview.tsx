@@ -8,7 +8,7 @@ function ProjectsPreview() {
   return (
     <section className="flex flex-col gap-14 items-center py-10 px-10 lg:px-20 bg-bg-light">
       <article className=" xl:flex xl:flex-row  flex-col md:grid md:grid-cols-2 justify-around gap-6">
-        {ProjectData.map((project) => (
+        {ProjectData.slice(0, 4).map((project) => (
           <ProjectCard
             key={project.id}
             date={project.date}
@@ -16,6 +16,7 @@ function ProjectsPreview() {
             description={project.description}
             images={project.images}
             link={project.link}
+            stack={project.stack}
           />
         ))}
       </article>

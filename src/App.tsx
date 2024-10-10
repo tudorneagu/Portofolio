@@ -24,7 +24,7 @@ function App() {
     <div className="min-h-screen flex flex-col justify-between w-full overflow-hidden">
       <div className=" w-full max-w-[1500px] mx-auto flex-grow flex flex-col">
         <Header langFr={langFr} setLangFr={setLangFr} />
-        <main className="flex flex-grow">
+        <main className="flex flex-grow w-full">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

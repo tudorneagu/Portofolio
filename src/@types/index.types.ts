@@ -18,4 +18,5 @@ export interface Project {
   images: string[];
   link?: string;
   "full-description"?: string;
+  notes?: string;
 }

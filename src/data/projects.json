@@ -2,8 +2,8 @@
   {
     "id": 1,
     "title": "Amazon Clone",
-    "date": "August 2024",
-    "description": "A full-stack e-commerce application inspired by Amazon.",
+    "date": "projects.amazonClone.date",
+    "description": "projects.amazonClone.description",
     "stack": [
       "React",
       "Tailwind CSS",
@@ -14,14 +14,15 @@
       "Prisma"
     ],
     "images": ["home.png", "cart.png", "product.png", "accountDetails.png"],
-    "full-description": "This project is a clone of the Amazon website, developed as a full-stack application. It allows users to browse products, add items to the cart, and place orders. The frontend is built using React, styled with Tailwind CSS, and the backend is developed with Node.js, Express, and Prisma connected to a PostgreSQL database.",
-    "link": "omazon-tudor-neagu.vercel.app/"
+    "full-description": "projects.amazonClone.fullDescription",
+    "notes": "projects.amazonClone.notes",
+    "link": "omazon-tudor-neagu.vercel.app"
   },
   {
     "id": 2,
     "title": "Okanban",
-    "date": "June 2024",
-    "description": "A project management tool inspired by Kanban boards.",
+    "date": "projects.okanban.date",
+    "description": "projects.okanban.description",
     "stack": ["React", "Node.js", "Tailwind CSS", "MongoDB"],
     "images": [
       "desktop.jpg",
@@ -30,25 +31,30 @@
       "mobile.jpg",
       "tablet.jpg"
     ],
-    "full-description": "Okanban is a project management tool that allows users to create boards, manage tasks, and collaborate in real-time. The frontend is powered by React and Tailwind CSS, while the backend uses Node.js and MongoDB to store project data and manage user accounts."
+    "full-description": "projects.okanban.fullDescription",
+    "notes": "projects.okanban.notes",
+    "link": "okanban-tudor-neagu.vercel.app/"
   },
   {
     "id": 3,
     "title": "World Wise",
-    "date": "Mai 2024",
-    "description": "An app that allows you to track destinations that you have visited around the world",
+    "date": "projects.worldWise.date",
+    "description": "projects.worldWise.description",
     "stack": ["React", "Tailwind CSS", "REST API"],
     "images": ["home.png", "login.png", "cityList.png", "addCity.png"],
-    "full-description": "This Pokedex app retrieves Pokemon data from an external REST API and displays it in a user-friendly interface. Users can search for Pokemon by name or type and view detailed information about each Pokemon, including stats and abilities.",
-    "link": "world-wise.vercel.app/"
+    "full-description": "projects.worldWise.fullDescription",
+    "notes": "projects.worldWise.notes",
+    "link": "world-wise-tudor-neagu.vercel.app/"
   },
   {
     "id": 4,
     "title": "Use Popcorn",
-    "date": "September 2024",
-    "description": "An app that allows you to search for movies that you watched and rate them",
+    "date": "projects.usePopcorn.date",
+    "description": "projects.usePopcorn.description",
     "stack": ["React", "Tailwind CSS", "Framer Motion"],
     "images": ["portfolio_home.png", "portfolio_projects.png"],
-    "full-description": "This portfolio website was developed using React and Tailwind CSS. It features a clean, minimal design with smooth animations powered by Framer Motion. The website includes sections for my projects, skills, and contact information."
+    "full-description": "projects.usePopcorn.fullDescription",
+    "notes": "projects.usePopcorn.notes",
+    "link": "use-popcorn-tudor-neagu.vercel.app/"
   }
 ]

@@ -3,7 +3,14 @@ import Caroussel from "../ui/Caroussel";
 import { useTranslation } from "react-i18next";
 import type { Project } from "../../@types/index.types";
 
-function ProjectCard({ date, title, description, link, images }: Project) {
+function ProjectCard({
+  date,
+  title,
+  description,
+  link,
+  images,
+  stack,
+}: Project) {
   const handleClick = () => {
     if (link && typeof link === "string") {
       const validLink = link.startsWith("http") ? link : `https://${link}`;
@@ -22,10 +29,15 @@ function ProjectCard({ date, title, description, link, images }: Project) {
           <Caroussel images={images} title={title} />
           <div className="flex justify-between mt-4">
             <h3 className="text-l-bold">{title}</h3>
-            <p className="text-m-bold text-medium">{date}</p>
+            <p className="text-m-bold text-medium">{t(`${date}`)}</p>
           </div>
         </div>
-        <p className="text-m-regular  text-medium">{description}</p>
+        <ul className=" flex flex-wrap pr-16 text-s-bold  ">
+          {stack?.map((el, index) => (
+            <li key={index}>/ {el} </li>
+          ))}
+        </ul>
+        <p className="text-m-regular  text-medium">{t(`${description}`)}</p>
       </div>
 
       <div className=" flex  justify-between items-center">
