@@ -2,6 +2,7 @@ import Button from "../ui/Buttons/Button";
 import Caroussel from "../ui/Caroussel";
 import { useTranslation } from "react-i18next";
 import type { Project } from "../../@types/index.types";
+import { Link } from "react-router-dom";
 
 function ProjectCard({
   date,
@@ -41,12 +42,8 @@ function ProjectCard({
       </div>
 
       <div className=" flex  justify-between items-center">
-        <div>
-          <a
-            className="mb-5 ml-4 text-m-regular  text-medium hover:font-bold hover:text-black "
-            href={`/projects/${title}`}>
-            {t("projects_preview_more")}
-          </a>
+        <div className="mb-5 ml-4 text-m-regular  text-medium hover:font-bold hover:text-black ">
+          <Link to={`/projects/${title}`}>{t("projects_preview_more")}</Link>
         </div>
 
         <Button
