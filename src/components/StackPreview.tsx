@@ -18,6 +18,7 @@ function Stack() {
         <img
           className="  p-5  bg-bg-light drop-shadow-xl"
           src="icons/javascript-line.svg"
+          alt="javascript logo"
         />
         <div className=" flex flex-col gap-1 py-5 w-25 h-25 px-5  text-center">
           <p className="text-l-bold">2</p>
@@ -29,6 +30,7 @@ function Stack() {
         <img
           className="  p-5  bg-bg-light drop-shadow-xl"
           src="icons/database-2-line.svg"
+          alt="database logo"
         />
         <div className=" flex flex-col gap-1 py-5 w-25 h-25 px-5  text-center">
           <p className="text-l-bold">{t("stack_methods_1")} </p>
@@ -40,6 +42,7 @@ function Stack() {
         <img
           className="  p-5 bg-bg-light drop-shadow-xl"
           src="icons/reactjs-fill.svg"
+          alt="react logo"
         />
         <div className=" flex flex-col gap-1 py-5 w-25 h-25 px-5  text-center">
           <p className="text-l-bold">SQL</p>
@@ -49,6 +52,7 @@ function Stack() {
         <img
           className=" p-5  rotate-180 bg-bg-light drop-shadow-xl"
           src="icons/route-line.svg"
+          alt="path logo"
         />{" "}
       </article>
     </section>

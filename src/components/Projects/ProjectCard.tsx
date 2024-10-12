@@ -29,7 +29,7 @@ function ProjectCard({
         <div className="  flex  flex-col gap-2 ">
           <Caroussel images={images} title={title} />
           <div className="flex justify-between mt-4">
-            <h3 className="text-l-bold">{title}</h3>
+            <h2 className="text-l-bold">{title}</h2>
             <p className="text-m-bold text-medium">{t(`${date}`)}</p>
           </div>
         </div>
