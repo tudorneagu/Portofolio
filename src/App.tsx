@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
-import Stack from "./pages/Stack";
+
 import Contact from "./pages/Contact";
 import ProjectDetails from "./components/Projects/ProjectDetails";
 import "./index.css";
@@ -29,7 +29,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/stack" element={<Stack />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects/:title" element={<ProjectDetails />} />
           </Routes>
