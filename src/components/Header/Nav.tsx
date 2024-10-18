@@ -34,7 +34,7 @@ function Nav({
         <ul
           className={`${
             isOpen ? "block" : "hidden"
-          } lg:hidden flex flex-col gap-10 bg-bg-light justify-around  py-9 border-b border-medium`}>
+          } lg:hidden flex flex-col gap-5 bg-bg-light justify-around  py-9 border-b border-medium`}>
           <NavLink
             onClick={() => {
               setIsOpen(false);
@@ -113,18 +113,7 @@ function Nav({
           }>
           {t("nav_about")}
         </NavLink>
-        <NavLink
-          onClick={() => {
-            setIsOpen(false);
-          }}
-          to={`/stack`}
-          className={({ isActive }) =>
-            isActive
-              ? "font-bold drop-shadow-3xl active:drop-shadow-3xl active:font-bold  transition-all min-w-[70px] cursor-pointer text-center"
-              : "active:drop-shadow-3xl active:font-bold  transition-all min-w-[70px] cursor-pointer text-center focus:border-b-2 focus:outline-none focus:border-medium"
-          }>
-          {t("nav_stack")}
-        </NavLink>
+
         <NavLink
           onClick={() => {
             setIsOpen(false);

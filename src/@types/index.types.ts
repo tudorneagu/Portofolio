@@ -7,6 +7,7 @@ export interface ButtonProps {
   rounded?: string;
   border?: string;
   value?: string;
+  children?: React.ReactNode;
 }
 
 export interface Project {
@@ -19,4 +20,5 @@ export interface Project {
   link?: string;
   "full-description"?: string;
   notes?: string;
+  github?: { front?: string; back?: string };
 }

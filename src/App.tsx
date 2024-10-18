@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
+import NotFound from "./pages/404";
 
 import Contact from "./pages/Contact";
 import ProjectDetails from "./components/Projects/ProjectDetails";
@@ -31,6 +32,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects/:title" element={<ProjectDetails />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

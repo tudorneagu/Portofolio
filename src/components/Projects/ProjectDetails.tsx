@@ -68,6 +68,36 @@ function ProjectDetails() {
                 ? t(`${project["full-description"]}`)
                 : ""}
             </p>
+            {project.github ? (
+              <div className="flex gap-3 pt-5">
+                {project.github.front ? (
+                  <div className="flex gap-3">
+                    <p className="font-bold">Github Repo:</p>
+                    <a
+                      className="hover:drop-shadow-lg underline"
+                      href={project.github?.front}>
+                      Frontend App
+                    </a>
+                  </div>
+                ) : (
+                  ""
+                )}
+                {project.github.back ? (
+                  <div className="flex gap-3">
+                    <p> / </p>
+                    <a
+                      className="hover:drop-shadow-lg underline"
+                      href={project.github?.back}>
+                      Backend Server
+                    </a>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+            ) : (
+              ""
+            )}
             {project["notes"] ? (
               <div className="my-3">
                 <p className="text-m-bold mb-1">Notes:</p>

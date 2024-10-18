@@ -13,6 +13,10 @@
       "PostgreSQL",
       "Prisma"
     ],
+    "github": {
+      "front": "https://github.com/tudorneagu/Omazon-front",
+      "back": "https://github.com/tudorneagu/Omazon-backend"
+    },
     "images": ["home.png", "cart.png", "product.png", "accountDetails.png"],
     "full-description": "projects.amazonClone.fullDescription",
     "notes": "projects.amazonClone.notes",
@@ -33,7 +37,10 @@
     ],
     "full-description": "projects.okanban.fullDescription",
     "notes": "projects.okanban.notes",
-    "link": "okanban-tudor-neagu.vercel.app/"
+    "link": "okanban-tudor-neagu.vercel.app/",
+    "github": {
+      "front": " https://github.com/tudorneagu/Kanban-SPA---Challenge "
+    }
   },
   {
     "id": 3,
@@ -44,7 +51,10 @@
     "images": ["home.png", "login.png", "cityList.png", "addCity.png"],
     "full-description": "projects.worldWise.fullDescription",
     "notes": "projects.worldWise.notes",
-    "link": "world-wise-tudor-neagu.vercel.app/"
+    "link": "world-wise-tudor-neagu.vercel.app/",
+    "github": {
+      "front": "  https://github.com/tudorneagu/world-wise"
+    }
   },
   {
     "id": 4,
