@@ -59,18 +59,7 @@ function Nav({
             }>
             {t("nav_about")}
           </NavLink>
-          <NavLink
-            onClick={() => {
-              setIsOpen(false);
-            }}
-            to={`/stack`}
-            className={({ isActive }) =>
-              isActive
-                ? "text-xl-bold drop-shadow-3xl active:drop-shadow-3xl active:text-xl-bold  transition-all min-w-[70px] cursor-pointer text-center"
-                : "active:drop-shadow-3xl active:text-xl-bold  transition-all min-w-[70px] cursor-pointer text-center text-xl-regular focus:border-b-2 focus:outline-none focus:border-medium"
-            }>
-            {t("nav_stack")}
-          </NavLink>
+
           <NavLink
             onClick={() => {
               setIsOpen(false);
