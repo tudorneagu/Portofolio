@@ -34,7 +34,6 @@ jobs:
           docker push tudorneagu90/portofolio:latest
 
       - name: Deploy to Hostinger and Validate MongoDB Connection
-        if: github.event.pull_request.base.ref == 'main'
         env:
           HOST: ${{ secrets.HOST }}
           USER: ${{ secrets.USER }}
