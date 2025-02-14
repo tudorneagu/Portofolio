@@ -68,9 +68,9 @@ jobs:
 
 
           # Pull the newly pushed images
-          docker-compose -f docker-compose.yml --env-file .env pull --no-cache
+          docker-compose -f docker-compose.yml 
             
           # Start containers
-          docker-compose -f docker-compose.yml --env-file .env up -d --remove-orphans || exit 1
+          docker-compose -f docker-compose.yml  up -d --remove-orphans || exit 1
 
           echo "Application deployed successfully."
