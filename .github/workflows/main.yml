@@ -29,13 +29,10 @@ jobs:
 
       - name: Build and Push Images
         run: |
-          # Build and push backend image
-          docker build --no-cache -f App/backend/Dockerfile -t tudorneagu90/weeklicious-backend:latest App/backend
-          docker push tudorneagu90/weeklicious-backend:latest
-
+       
           # Build and push frontend image
-          docker build --no-cache -f App/frontend/Dockerfile -t tudorneagu90/weeklicious-frontend:latest App/frontend
-          docker push tudorneagu90/weeklicious-frontend:latest
+          docker build --no-cache -f Dockerfile -t tudorneagu90/portofolio:latest .
+          docker push tudorneagu90/portofolio:latest
 
       - name: Deploy to Hostinger and Validate MongoDB Connection
         if: github.event.pull_request.base.ref == 'main'
