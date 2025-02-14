@@ -1,0 +1,87 @@
+name: Weeklicious Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  CD:
+    runs-on: ubuntu-latest
+    environment: production
+    needs: CI
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Clean workspace
+        run: git reset --hard && git clean -fdx
+
+      - name: Prune Docker Builder Cache
+        run: docker builder prune --all --force
+
+    
+      # ---------- Build & Push Production Images ----------
+      - name: Login to Docker Hub
+        run: |
+          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "tudorneagu90" --password-stdin
+
+      - name: Build and Push Images
+        run: |
+          # Build and push backend image
+          docker build --no-cache -f App/backend/Dockerfile -t tudorneagu90/weeklicious-backend:latest App/backend
+          docker push tudorneagu90/weeklicious-backend:latest
+
+          # Build and push frontend image
+          docker build --no-cache -f App/frontend/Dockerfile -t tudorneagu90/weeklicious-frontend:latest App/frontend
+          docker push tudorneagu90/weeklicious-frontend:latest
+
+      - name: Deploy to Hostinger and Validate MongoDB Connection
+        if: github.event.pull_request.base.ref == 'main'
+        env:
+          HOST: ${{ secrets.HOST }}
+          USER: ${{ secrets.USER }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          APP_DIR: "/app/portofolio"
+
+        run: |
+          echo "$PRIVATE_KEY" > /tmp/deploy_key
+          chmod 600 /tmp/deploy_key
+
+          # SSH to create/clean the folder
+          ssh -T -o StrictHostKeyChecking=no -i /tmp/deploy_key $USER@$HOST << EOF
+            mkdir -p $APP_DIR
+            cd $APP_DIR
+            rm -f docker-compose.prod.yml
+            exit
+          EOF
+
+           # Now copy the local docker-compose.nginx.yml to VPS
+          scp -o StrictHostKeyChecking=no -i /tmp/deploy_key \
+            ./docker-compose.nginx.yml \
+            $USER@$HOST:./docker-compose.nginx.yml
+
+          # Now copy the local docker-compose.prod.yml to VPS
+          scp -o StrictHostKeyChecking=no -i /tmp/deploy_key \
+            ./docker-compose.yml \
+            $USER@$HOST:$APP_DIR/docker-compose.yml
+
+          # SSH again to run Docker commands
+          ssh -T -o StrictHostKeyChecking=no -i /tmp/deploy_key $USER@$HOST << EOF
+            cd $APP_DIR
+
+    
+          # Pull the newly pushed images
+          docker-compose -f docker-compose.yml --env-file .env pull --no-cache
+            
+          # Start containers
+          docker-compose -f docker-compose.yml --env-file .env up -d --remove-orphans || exit 1
+
+          echo "Application deployed successfully."
+
+    
+
+          
+
