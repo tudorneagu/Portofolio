@@ -30,7 +30,7 @@ jobs:
         run: |
 
           # Build and push frontend image
-          docker build -t portofolio tudorneagu90/portofolio:latest .
+          docker build -t tudorneagu90/portofolio:latest .
           docker push tudorneagu90/portofolio:latest
 
       - name: Deploy to Hostinger and Validate MongoDB Connection
