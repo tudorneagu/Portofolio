@@ -21,7 +21,6 @@ jobs:
       - name: Prune Docker Builder Cache
         run: docker builder prune --all --force
 
-    
       # ---------- Build & Push Production Images ----------
       - name: Login to Docker Hub
         run: |
@@ -29,9 +28,9 @@ jobs:
 
       - name: Build and Push Images
         run: |
-       
+
           # Build and push frontend image
-          docker build --no-cache -f Dockerfile -t tudorneagu90/portofolio:latest .
+          docker build -t portofolio tudorneagu90/portofolio:latest .
           docker push tudorneagu90/portofolio:latest
 
       - name: Deploy to Hostinger and Validate MongoDB Connection
@@ -68,7 +67,7 @@ jobs:
           ssh -T -o StrictHostKeyChecking=no -i /tmp/deploy_key $USER@$HOST << EOF
             cd $APP_DIR
 
-    
+
           # Pull the newly pushed images
           docker-compose -f docker-compose.yml --env-file .env pull --no-cache
             
@@ -76,8 +75,3 @@ jobs:
           docker-compose -f docker-compose.yml --env-file .env up -d --remove-orphans || exit 1
 
           echo "Application deployed successfully."
-
-    
-
-          
-
