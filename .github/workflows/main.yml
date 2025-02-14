@@ -66,9 +66,8 @@ jobs:
           ssh -T -o StrictHostKeyChecking=no -i /tmp/deploy_key $USER@$HOST << EOF
             cd $APP_DIR
 
-
           # Pull the newly pushed images
-          docker-compose -f docker-compose.yml 
+          docker-compose -f docker-compose.yml  pull
             
           # Start containers
           docker-compose -f docker-compose.yml  up -d --remove-orphans || exit 1
