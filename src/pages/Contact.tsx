@@ -39,7 +39,9 @@ function Contact() {
       console.log("FAILED...", (error as Error).message);
     }
   };
+
   const { t } = useTranslation();
+
   return (
     <section className="flex flex-col lg:flex-row  flex-grow lg:w-full bg-bg-light items-center justify-center gap-10 lg:gap-52 px-10 lg:px-20">
       <article className="max-w-80  flex flex-col gap-5">

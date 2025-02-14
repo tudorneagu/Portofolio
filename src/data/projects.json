@@ -23,6 +23,29 @@
     "link": "omazon-tudor-neagu.vercel.app"
   },
   {
+    "id": 1,
+    "title": "Amazon Clone",
+    "date": "projects.amazonClone.date",
+    "description": "projects.amazonClone.description",
+    "stack": [
+      "React",
+      "Tailwind CSS",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Prisma"
+    ],
+    "github": {
+      "front": "https://github.com/tudorneagu/Omazon-front",
+      "back": "https://github.com/tudorneagu/Omazon-backend"
+    },
+    "images": ["home.png", "cart.png", "product.png", "accountDetails.png"],
+    "full-description": "projects.amazonClone.fullDescription",
+    "notes": "projects.amazonClone.notes",
+    "link": "omazon-tudor-neagu.vercel.app"
+  },
+  {
     "id": 2,
     "title": "Okanban",
     "date": "projects.okanban.date",

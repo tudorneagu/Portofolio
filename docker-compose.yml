@@ -1,0 +1,15 @@
+version: "3"
+services:
+  Portofolio:
+    image: nginx
+    container_name: portofolio
+    volumes:
+      - ./portofolio:/usr/share/nginx/html
+    expose:
+      - "80"
+    networks:
+      - nginx-proxy
+
+networks:
+  nginx-proxy:
+    external: true
