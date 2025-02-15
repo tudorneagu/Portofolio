@@ -30,11 +30,10 @@ jobs:
         run: |
 
           # Build and push frontend image
-          docker build -t portofolio tudorneagu90/portofolio:latest .
+          docker build -t tudorneagu90/portofolio:latest .
           docker push tudorneagu90/portofolio:latest
 
       - name: Deploy to Hostinger and Validate MongoDB Connection
-        if: github.event.pull_request.base.ref == 'main'
         env:
           HOST: ${{ secrets.HOST }}
           USER: ${{ secrets.USER }}
@@ -67,11 +66,10 @@ jobs:
           ssh -T -o StrictHostKeyChecking=no -i /tmp/deploy_key $USER@$HOST << EOF
             cd $APP_DIR
 
-
           # Pull the newly pushed images
-          docker-compose -f docker-compose.yml --env-file .env pull --no-cache
+          docker-compose -f docker-compose.yml  pull
             
           # Start containers
-          docker-compose -f docker-compose.yml --env-file .env up -d --remove-orphans || exit 1
+          docker-compose -f docker-compose.yml  up -d --remove-orphans || exit 1
 
           echo "Application deployed successfully."
