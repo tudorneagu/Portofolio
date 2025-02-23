@@ -5,8 +5,8 @@ function Hero() {
   const { t } = useTranslation();
   function handleDownload() {
     const link = document.createElement("a");
-    link.href = "/CV - Tudor Neagu.pdf";
-    link.download = "Tudor_Neagu_Resume.pdf";
+    link.href = "/Tudor_Neagu_DevFullstack_CV.pdf";
+    link.download = "Tudor_Neagu_DevFullstack_CV.pdf";
     link.click();
   }
   return (

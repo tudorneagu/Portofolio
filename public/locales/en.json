@@ -46,6 +46,12 @@
   "projects": {
     "title": "My work",
     "catchPhrase": "Explore some of my key projects—each one reflects my learning journey, showcasing the skills and expertise I've gained along the way.",
+    "weeklicious": {
+      "date": "December 2024 - present",
+      "description": "A full-stack meal planner web application that helps users plan their meals for the week.",
+      "fullDescription": "Weeklicious is a collaborative meal planning app that allows users to create, share, and organize their meals easily. Unlike automated solutions, Weeklicious focuses on personalization and flexibility, making it easy for friends, family, or roommates to plan and manage their meals together for a more balanced and organized approach to eating.",
+      "notes": ""
+    },
     "amazonClone": {
       "date": "August 2024",
       "description": "A full-stack e-commerce application inspired by Amazon.",

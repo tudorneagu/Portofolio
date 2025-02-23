@@ -47,6 +47,12 @@
   "projects": {
     "title": "Mon travail",
     "catchPhrase": "Voici quelques projets qui reflètent mon parcours d'apprentissage et les compétences que j'ai développées.",
+    "weeklicious": {
+      "date": "Décembre 2024 - présent",
+      "description": "Une application web de planification de repas full-stack qui aide les utilisateurs à planifier leurs repas pour la semaine.",
+      "fullDescription": "Weeklicious est une application collaborative de planification de repas qui permet aux utilisateurs de créer, partager et organiser facilement leurs repas. Contrairement aux solutions automatisées, Weeklicious se concentre sur la personnalisation et la flexibilité, facilitant ainsi la planification et la gestion collective des repas par des amis, la famille ou des colocataires, pour une approche plus équilibrée et organisée de l'alimentation.",
+      "notes": ""
+    },
     "amazonClone": {
       "date": "Août 2024",
       "description": "Une application e-commerce full-stack inspirée d'Amazon.",

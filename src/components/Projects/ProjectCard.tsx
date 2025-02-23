@@ -24,21 +24,25 @@ function ProjectCard({
   const { t } = useTranslation();
 
   return (
-    <article className="flex flex-col justify-between  bg-bg-dark h-[450px]  rounded-lg overflow-clip w-full">
-      <div className="  flex  flex-col gap-3 pt-5 px-5 ">
-        <div className="  flex  flex-col gap-2 ">
-          <Caroussel images={images} title={title} />
-          <div className="flex justify-between mt-4">
-            <h2 className="text-l-bold">{title}</h2>
-            <p className="text-m-bold text-medium">{t(`${date}`)}</p>
+    <article className="flex flex-col justify-between  bg-bg-dark h-[550px]  rounded-lg overflow-clip w-full">
+      <div className="  flex  flex-col  justify-between gap-3 pt-5 px-5 flex-grow ">
+        <div>
+          <div className="  flex  flex-col gap-2 ">
+            <Caroussel images={images} title={title} />
+            <div className="flex justify-between mt-4">
+              <h2 className="text-l-bold">{title}</h2>
+              <p className="text-s-bold text-medium">{t(`${date}`)}</p>
+            </div>
           </div>
+          <ul className=" flex flex-wrap pr-5 text-s-bold pt-2  ">
+            {stack?.map((el, index) => (
+              <li key={index}>/ {el} </li>
+            ))}
+          </ul>
         </div>
-        <ul className=" flex flex-wrap pr-16 text-s-bold  ">
-          {stack?.map((el, index) => (
-            <li key={index}>/ {el} </li>
-          ))}
-        </ul>
-        <p className="text-m-regular  text-medium">{t(`${description}`)}</p>
+        <p className="text-m-regular h-[150px] text-medium">
+          {t(`${description}`)}
+        </p>
       </div>
 
       <div className=" flex  justify-between items-center">

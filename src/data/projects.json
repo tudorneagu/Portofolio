@@ -1,52 +1,58 @@
 [
   {
     "id": 1,
-    "title": "Amazon Clone",
-    "date": "projects.amazonClone.date",
-    "description": "projects.amazonClone.description",
+    "title": "Weeklicious",
+    "date": "projects.weeklicious.date",
+    "description": "projects.weeklicious.description",
     "stack": [
       "React",
+      "ReactNative",
       "Tailwind CSS",
       "TypeScript",
       "Node.js",
-      "Express",
-      "PostgreSQL",
-      "Prisma"
+      "MongoDB",
+      "Docker",
+      "GitHub Actions"
     ],
     "github": {
       "front": "https://github.com/tudorneagu/Omazon-front",
       "back": "https://github.com/tudorneagu/Omazon-backend"
     },
-    "images": ["home.png", "cart.png", "product.png", "accountDetails.png"],
-    "full-description": "projects.amazonClone.fullDescription",
-    "notes": "projects.amazonClone.notes",
-    "link": "omazon-tudor-neagu.vercel.app"
-  },
-  {
-    "id": 1,
-    "title": "Amazon Clone",
-    "date": "projects.amazonClone.date",
-    "description": "projects.amazonClone.description",
-    "stack": [
-      "React",
-      "Tailwind CSS",
-      "TypeScript",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "Prisma"
+    "images": [
+      "heroScreen.png",
+      "loggedScreen.png",
+      "recipeScreen.png",
+      "createRecipyScreen.png"
     ],
-    "github": {
-      "front": "https://github.com/tudorneagu/Omazon-front",
-      "back": "https://github.com/tudorneagu/Omazon-backend"
-    },
-    "images": ["home.png", "cart.png", "product.png", "accountDetails.png"],
-    "full-description": "projects.amazonClone.fullDescription",
-    "notes": "projects.amazonClone.notes",
-    "link": "omazon-tudor-neagu.vercel.app"
+    "full-description": "projects.weeklicious.fullDescription",
+    "notes": "projects.weeklicious.notes",
+    "link": "weeklicious.com"
   },
   {
     "id": 2,
+    "title": "Amazon Clone",
+    "date": "projects.amazonClone.date",
+    "description": "projects.amazonClone.description",
+    "stack": [
+      "React",
+      "Tailwind CSS",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Prisma"
+    ],
+    "github": {
+      "front": "https://github.com/tudorneagu/Omazon-front",
+      "back": "https://github.com/tudorneagu/Omazon-backend"
+    },
+    "images": ["home.png", "cart.png", "product.png", "accountDetails.png"],
+    "full-description": "projects.amazonClone.fullDescription",
+    "notes": "projects.amazonClone.notes",
+    "link": "omazon-tudor-neagu.vercel.app"
+  },
+  {
+    "id": 3,
     "title": "Okanban",
     "date": "projects.okanban.date",
     "description": "projects.okanban.description",
@@ -66,7 +72,7 @@
     }
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "World Wise",
     "date": "projects.worldWise.date",
     "description": "projects.worldWise.description",
@@ -80,7 +86,7 @@
     }
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Use Popcorn",
     "date": "projects.usePopcorn.date",
     "description": "projects.usePopcorn.description",
