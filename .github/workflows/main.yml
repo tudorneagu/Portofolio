@@ -1,23 +1,52 @@
-- name: Deploy to VPS
-  env:
-    HOST: ${{ secrets.HOST }}
-    USER: ${{ secrets.USER }}
-    PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-    APP_DIR: "/app/portofolio"
+name: Personal Portfolio
 
-  run: |
-    echo "$PRIVATE_KEY" > /tmp/deploy_key
-    chmod 600 /tmp/deploy_key
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-    # Create directory and clean old files
-    ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no $USER@$HOST \
-      "mkdir -p $APP_DIR && rm -f $APP_DIR/docker-compose.yml"
+jobs:
+  CD:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v3
 
-    # Copy docker-compose.yml to VPS
-    scp -i /tmp/deploy_key -o StrictHostKeyChecking=no \
-      ./docker-compose.yml \
-      $USER@$HOST:$APP_DIR/docker-compose.yml
+      - name: Clean workspace
+        run: git reset --hard && git clean -fdx
 
-    # Deploy the application (with cleanup and orphan removal)
-    ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no $USER@$HOST \
-      "cd $APP_DIR && docker compose down && docker compose up -d --remove-orphans"
+      - name: Prune Docker Builder Cache
+        run: docker builder prune --all --force
+
+      - name: Login to Docker Hub
+        run: |
+          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "tudorneagu90" --password-stdin
+
+      - name: Build and Push Images
+        run: |
+          docker build -t tudorneagu90/portofolio:latest .
+          docker push tudorneagu90/portofolio:latest
+
+      - name: Deploy to VPS
+        env:
+          HOST: ${{ secrets.HOST }}
+          USER: ${{ secrets.USER }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          APP_DIR: "/app/portofolio"
+
+        run: |
+          echo "$PRIVATE_KEY" > /tmp/deploy_key
+          chmod 600 /tmp/deploy_key
+
+          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no $USER@$HOST \
+            "mkdir -p $APP_DIR && rm -f $APP_DIR/docker-compose.yml"
+
+          scp -i /tmp/deploy_key -o StrictHostKeyChecking=no \
+            ./docker-compose.yml \
+            $USER@$HOST:$APP_DIR/docker-compose.yml
+
+          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no $USER@$HOST \
+            "cd $APP_DIR && docker compose pull && docker compose up -d --remove-orphans"
