@@ -1,64 +1,75 @@
-name: CD – Portfolio Cosmin
+name: Cosmin Pantea - Portfolio
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  deploy:
+  CD:
     runs-on: ubuntu-latest
     environment: production
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Clean workspace
-        run: |
-          git reset --hard
-          git clean -fdx
+        run: git reset --hard && git clean -fdx
 
-      - name: Prune Docker builder cache
+      - name: Prune Docker Builder Cache
         run: docker builder prune --all --force
 
+      # ---------- Build & Push Production Images ----------
       - name: Login to Docker Hub
         run: |
-          echo "${{ secrets.DOCKERHUB_PASSWORD }}" \
-            | docker login -u "tudorneagu90" --password-stdin
+          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "tudorneagu90" --password-stdin
 
-      - name: Build & push image
+      - name: Build and Push Images
         run: |
-          docker build -t tudorneagu90/portofolio-cosmin:latest .
-          docker push tudorneagu90/portofolio-cosmin:latest
 
-      - name: Deploy to VPS
+          # Build and push frontend image
+          docker build -t tudorneagu90/portofolio:latest .
+          docker push tudorneagu90/portofolio:latest
+
+      - name: Deploy to Hostinger
         env:
           HOST: ${{ secrets.HOST }}
           USER: ${{ secrets.USER }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          APP_DIR: "/app/portofolio-cosmin"
+          APP_DIR: "/app/portofolio"
+
         run: |
-          # Write & secure SSH key
           echo "$PRIVATE_KEY" > /tmp/deploy_key
           chmod 600 /tmp/deploy_key
 
-          # Ensure target folder exists & remove old compose
-          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no \
-            $USER@$HOST \
-            "mkdir -p $APP_DIR && rm -f $APP_DIR/docker-compose.yml"
+          # SSH to create/clean the folder
+          ssh -T -o StrictHostKeyChecking=no -i /tmp/deploy_key $USER@$HOST << EOF
+            mkdir -p $APP_DIR
+            cd $APP_DIR
+            rm -f docker-compose.prod.yml
+            exit
+          EOF
 
-          # Copy over the new docker-compose.yml
-          scp -i /tmp/deploy_key -o StrictHostKeyChecking=no \
+           # Now copy the local docker-compose.nginx.yml to VPS
+          scp -o StrictHostKeyChecking=no -i /tmp/deploy_key \
+            ./docker-compose.nginx.yml \
+            $USER@$HOST:./docker-compose.nginx.yml
+
+          # Now copy the local docker-compose.prod.yml to VPS
+          scp -o StrictHostKeyChecking=no -i /tmp/deploy_key \
             ./docker-compose.yml \
             $USER@$HOST:$APP_DIR/docker-compose.yml
 
-          # Pull & restart with plugin syntax, confirming location
-          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no \
-            $USER@$HOST \
-            "cd $APP_DIR \
-             && echo 'Contents of $APP_DIR:' \
-             && ls -lah \
-             && docker compose pull \
-             && docker compose up -d --remove-orphans"
+          # SSH again to run Docker commands
+          ssh -T -o StrictHostKeyChecking=no -i /tmp/deploy_key $USER@$HOST << EOF
+            cd $APP_DIR
+
+          # Pull the newly pushed images
+          docker-compose -f docker-compose.yml  pull
+            
+          # Start containers
+          docker-compose -f docker-compose.yml  up -d --remove-orphans || exit 1
+
+          echo "Application deployed successfully."

@@ -1,19 +1,13 @@
 version: "3"
 services:
-  nginx-proxy:
-    image: "jc21/nginx-proxy-manager:latest"
-    container_name: nginx_proxy_manager
+  portofolio:
+    image: tudorneagu90/portofolio:latest
+    container_name: portofolio
     restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-      - "81:81"
+    expose:
+      - "80"
     networks:
       - nginx-proxy
-    volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
-      - /app/portofolio-cosmin/photos:/app/portofolio-cosmin/photos  # Add this line
 
 networks:
   nginx-proxy:
