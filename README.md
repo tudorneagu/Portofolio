@@ -73,4 +73,4 @@ Repository secrets (Settings → Secrets and variables → Actions):
 | `HOST`, `USER`, `PRIVATE_KEY` | SSH access to the VPS |
 | `ANTHROPIC_API_KEY` | the assistant's key; without it the site runs on prepared answers only |
 
-The container listens on port 80 and joins the `nginx-proxy` Docker network.
+The container listens on port 80 and joins the `traefik-public` Docker network: the VPS's Traefik routes `tudorneagu.com` to it, redirects `www`, and handles the HTTPS certificate.
