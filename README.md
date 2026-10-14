@@ -4,8 +4,6 @@ My portfolio, in French and English, with an assistant that answers visitors' qu
 
 **Live:** [tudorneagu.com](https://tudorneagu.com)
 
-> The new version described below is about to go live. Until then, tudorneagu.com still shows the previous site.
-
 ## What's worth a look
 
 - **An assistant with guardrails.** Common questions get answers I wrote myself, shown instantly without calling a model. Free questions go to Claude Haiku through `POST /api/chat` and stream back. The model is told to answer only from a fact sheet built from the page content, to refuse off-topic requests and to ignore attempts to change its instructions. Around it: an origin check, a rate limit per IP, capped question, history and answer lengths, and a monthly spending cap as the last safety net (`src/lib/guard.ts`, `src/lib/rate-limit.ts`).

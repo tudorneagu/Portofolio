@@ -1,36 +1,39 @@
-# 1. Build React app
-FROM node:18-alpine AS builder
+# ── Dépendances ──────────────────────────────────────────────────────────────
+FROM node:24-alpine AS deps
 WORKDIR /app
-
-# Install pnpm
-RUN corepack enable && corepack prepare pnpm@9.6.0 --activate
-
-# Copy dependency files
+RUN corepack enable
 COPY package.json pnpm-lock.yaml ./
-
-# Install dependencies
 RUN pnpm install --frozen-lockfile
 
-# Copy source code
+# ── Build ────────────────────────────────────────────────────────────────────
+FROM node:24-alpine AS builder
+WORKDIR /app
+RUN corepack enable
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+ENV NEXT_TELEMETRY_DISABLED=1
+# Aucun secret n'entre ici : la clé de l'assistant est lue au démarrage du conteneur.
+RUN pnpm build
 
-# Build the app
-RUN pnpm run build
+# ── Exécution ────────────────────────────────────────────────────────────────
+FROM node:24-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+# Même port que l'ancienne image nginx : rien à changer sur le proxy du VPS.
+ENV PORT=80
+ENV HOSTNAME="0.0.0.0"
 
-# Verify build output
-RUN ls -l /app/dist
+RUN addgroup --system --gid 1001 nodejs \
+ && adduser --system --uid 1001 nextjs
 
-# 2. Serve with Nginx
-FROM nginx:stable-alpine
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
-# Copy built app from builder stage
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Les images redimensionnées à la demande sont mises en cache ici.
+RUN mkdir -p .next/cache && chown -R nextjs:nodejs .next
 
-# Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Verify files are present
-RUN ls -l /usr/share/nginx/html
-
+USER nextjs
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "server.js"]
