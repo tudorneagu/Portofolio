@@ -18,3 +18,7 @@ next-env.d.ts
 !.vscode/extensions.json
 .idea
 .DS_Store
+.env.local
+
+# Fichiers locaux de l'assistant PostHog
+.claude/

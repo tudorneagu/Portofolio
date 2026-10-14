@@ -4,6 +4,7 @@ import { ArrowRight } from "@/components/ui/Icon";
 import type { Content } from "@/content/types";
 import { CONTACT_LIMITS, EMAILJS } from "@/lib/contact";
 import { send } from "@emailjs/browser";
+import posthog from "posthog-js";
 import { type FormEvent, useRef, useState } from "react";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -48,6 +49,12 @@ export function ContactForm({ form }: { form: Content["contact"]["form"] }) {
 			);
 			node.reset();
 			setStatus("sent");
+			if (
+				process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
+				process.env.NEXT_PUBLIC_POSTHOG_HOST
+			) {
+				posthog.capture("contact_form_submitted");
+			}
 		} catch {
 			setStatus("error");
 		}

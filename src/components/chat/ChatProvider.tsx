@@ -8,6 +8,7 @@ import type {
 } from "@/content/types";
 import { prefersReducedMotion, scrollBehavior } from "@/lib/motion";
 import { readTag, stripTag } from "@/lib/rich";
+import posthog from "posthog-js";
 import {
 	type ReactNode,
 	createContext,
@@ -105,6 +106,7 @@ export function ChatProvider({
 	const asked = useRef(new Set<AnswerKey>());
 	/** Ce qui est envoyé au modèle : les échanges, sans le message d'accueil. */
 	const turns = useRef<{ role: "user" | "assistant"; content: string }[]>([]);
+	const conversationId = useRef<string | null>(null);
 	const timers = useRef(new Set<ReturnType<typeof setInterval>>());
 	const dismissed = useRef(false);
 	const heroNode = useRef<HTMLElement | null>(null);
@@ -195,6 +197,15 @@ export function ChatProvider({
 	const ask = useCallback(
 		(key: AnswerKey) => {
 			if (busy) return;
+			if (
+				process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
+				process.env.NEXT_PUBLIC_POSTHOG_HOST
+			) {
+				posthog.capture("chat_suggested_question_selected", {
+					answer_key: key,
+					language: lang,
+				});
+			}
 			const answer = assistant.answers[key];
 			asked.current.add(key);
 			reply(
@@ -204,13 +215,23 @@ export function ChatProvider({
 				answer.next,
 			);
 		},
-		[assistant.answers, busy, reply],
+		[assistant.answers, busy, lang, reply],
 	);
 
 	const send = useCallback(
 		(raw: string) => {
 			const question = raw.trim();
 			if (!question || busy) return;
+			const isSmallTalk = HELLO.test(question) || THANKS.test(question);
+			if (
+				process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
+				process.env.NEXT_PUBLIC_POSTHOG_HOST
+			) {
+				posthog.capture("chat_question_submitted", {
+					language: lang,
+					response_type: isSmallTalk ? "instant" : "ai",
+				});
+			}
 			if (HELLO.test(question)) {
 				reply(question, assistant.smallTalk.hello, () => undefined, []);
 				return;
@@ -228,6 +249,7 @@ export function ChatProvider({
 				...turns.current,
 				{ role: "user" as const, content: question },
 			];
+			conversationId.current ??= crypto.randomUUID();
 
 			const fail = (key: keyof AssistantContent["errors"]) => {
 				patch(id, {
@@ -243,7 +265,11 @@ export function ChatProvider({
 					const response = await fetch("/api/chat", {
 						method: "POST",
 						headers: { "Content-Type": "application/json" },
-						body: JSON.stringify({ lang, turns: history }),
+						body: JSON.stringify({
+							conversationId: conversationId.current,
+							lang,
+							turns: history,
+						}),
 					});
 					if (!response.ok || !response.body) {
 						fail(STATUS_ERRORS[response.status] ?? "generic");
@@ -324,6 +350,12 @@ export function ChatProvider({
 	}, []);
 
 	const openDock = useCallback(() => {
+		if (
+			process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
+			process.env.NEXT_PUBLIC_POSTHOG_HOST
+		) {
+			posthog.capture("chat_dock_opened");
+		}
 		dismissed.current = false;
 		setDockOpen(true);
 		setFocusRequest((r) => ({ target: "dock", tick: r.tick + 1 }));

@@ -64,6 +64,10 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
+          # Valeurs publiques (variables du dépôt, pas des secrets) : elles finissent dans le navigateur.
+          build-args: |
+            NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN=${{ vars.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN }}
+            NEXT_PUBLIC_POSTHOG_HOST=${{ vars.NEXT_PUBLIC_POSTHOG_HOST }}
           tags: |
             ghcr.io/${{ steps.repo.outputs.repo }}:latest
             ghcr.io/${{ steps.repo.outputs.repo }}:${{ github.sha }}
