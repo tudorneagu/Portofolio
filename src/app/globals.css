@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+/* Les couleurs et polices du site. Un seul accent, le bleu canard de Flowni ;
+   le reste de la couleur vient des captures. */
+@theme {
+	--color-bg: #fcfcfb;
+	--color-surface: #ffffff;
+	--color-soft: #f4f4f2;
+	--color-fg: #111111;
+	--color-muted: #6b6b67;
+	--color-hair: #e6e6e2;
+	--color-accent: #0b7285;
+	--color-accent-soft: #e6f4f6;
+	--color-glow: #d8eef2;
+	--color-live: #16a34a;
+	--color-live-soft: #e9f7ee;
+	/* Vert foncé pour du texte sur le vert clair : le vert vif n'y est pas lisible. */
+	--color-live-ink: #166534;
+
+	--font-sans: var(--font-geist-sans), "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
+	--font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+@layer base {
+	html {
+		color-scheme: light;
+	}
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			scroll-behavior: smooth;
+		}
+	}
+	body {
+		background: var(--color-bg);
+		color: var(--color-fg);
+		font-family: var(--font-sans);
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+	}
+	/* Les surfaces du navigateur prennent les couleurs du site. */
+	::selection {
+		background: var(--color-accent-soft);
+		color: var(--color-fg);
+	}
+	input {
+		caret-color: var(--color-accent);
+	}
+	:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 2px;
+		border-radius: 6px;
+	}
+}
+
+@layer components {
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		border-radius: 999px;
+		border: 1px solid var(--color-fg);
+		padding: 8px 16px;
+		font-size: 0.875rem;
+		min-height: 44px;
+		font-weight: 500;
+		cursor: pointer;
+		transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+	}
+	.btn-solid {
+		background: var(--color-fg);
+		color: var(--color-bg);
+	}
+	.btn-solid:hover {
+		background: var(--color-accent);
+		border-color: var(--color-accent);
+	}
+	.btn-line {
+		background: var(--color-surface);
+		color: var(--color-fg);
+		border-color: var(--color-hair);
+	}
+	.btn-line:hover {
+		border-color: var(--color-fg);
+	}
+	.btn-lg {
+		padding: 12px 22px;
+		font-size: 1rem;
+	}
+}
+
+/* Halo léger derrière la photo de l'accueil. */
+.glow::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	background: radial-gradient(
+		ellipse 50% 380px at 50% 0,
+		var(--color-glow),
+		transparent 72%
+	);
+}
+
+.no-scrollbar {
+	scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+/* Tiret du message d'accueil : absent sans animation, il ne sert qu'à l'effet d'écriture. */
+.greet-caret {
+	display: none;
+}
+
+/* Emplacement d'une image qui reste à fournir. */
+.placeholder {
+	background: repeating-linear-gradient(
+		135deg,
+		var(--color-surface) 0 12px,
+		var(--color-soft) 12px 24px
+	);
+}
+
+/* Cadre bref autour de la section vers laquelle le chat vient de renvoyer. */
+.flash {
+	outline: 2px solid transparent;
+	outline-offset: 8px;
+	border-radius: 14px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.flash {
+		animation: flash 2s ease-out;
+	}
+	@keyframes flash {
+		0%,
+		35% {
+			outline-color: var(--color-accent);
+		}
+		100% {
+			outline-color: transparent;
+		}
+	}
+
+	/* Apparition en fondu au défilement (voir components/ui/Reveal.tsx). */
+	.reveal-wait {
+		opacity: 0;
+		transform: translateY(18px);
+		transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+	}
+	.reveal-in {
+		opacity: 1;
+		transform: none;
+	}
+
+	/* Message d'accueil : chaque mot apparaît à son tour, puis le tiret clignote cinq fois et disparaît. */
+	.greet-word {
+		opacity: 0;
+		animation: word-in 0.3s ease-out forwards;
+	}
+	@keyframes word-in {
+		to {
+			opacity: 1;
+		}
+	}
+	.greet-caret {
+		display: inline;
+		opacity: 0;
+		animation: blink-once 1s steps(1) 5;
+	}
+	@keyframes blink-once {
+		0%,
+		49% {
+			opacity: 1;
+		}
+		50%,
+		100% {
+			opacity: 0;
+		}
+	}
+
+	/* Le tiret bas qui clignote, comme dans un éditeur de code. */
+	.caret {
+		animation: blink 1.1s steps(1) infinite;
+	}
+	@keyframes blink {
+		50% {
+			opacity: 0;
+		}
+	}
+
+	.pop {
+		animation: pop 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+		transform-origin: bottom right;
+	}
+	@keyframes pop {
+		from {
+			transform: translateY(8px) scale(0.96);
+		}
+		to {
+			transform: none;
+		}
+	}
+}
