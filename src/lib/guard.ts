@@ -24,6 +24,7 @@ export interface ChatTurn {
 }
 
 export interface ChatRequest {
+	conversationId: string;
 	lang: Lang;
 	turns: ChatTurn[];
 }
@@ -59,8 +60,20 @@ export function checkRequest(body: unknown): GuardResult {
 	if (typeof body !== "object" || body === null) {
 		return { ok: false, status: 400, code: "bad_request" };
 	}
-	const { lang, turns } = body as { lang?: unknown; turns?: unknown };
-	if (!isLang(lang) || !Array.isArray(turns) || turns.length === 0) {
+	const { conversationId, lang, turns } = body as {
+		conversationId?: unknown;
+		lang?: unknown;
+		turns?: unknown;
+	};
+	if (
+		typeof conversationId !== "string" ||
+		!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(
+			conversationId,
+		) ||
+		!isLang(lang) ||
+		!Array.isArray(turns) ||
+		turns.length === 0
+	) {
 		return { ok: false, status: 400, code: "bad_request" };
 	}
 
@@ -105,5 +118,5 @@ export function checkRequest(body: unknown): GuardResult {
 		recent = recent.slice(1);
 	}
 
-	return { ok: true, request: { lang, turns: recent } };
+	return { ok: true, request: { conversationId, lang, turns: recent } };
 }

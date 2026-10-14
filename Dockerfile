@@ -12,6 +12,11 @@ RUN corepack enable
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
+# PostHog : des valeurs publiques, que Next.js inscrit dans le code au moment du build.
+ARG NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN
+ARG NEXT_PUBLIC_POSTHOG_HOST
+ENV NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN=$NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN \
+    NEXT_PUBLIC_POSTHOG_HOST=$NEXT_PUBLIC_POSTHOG_HOST
 # Aucun secret n'entre ici : la clé de l'assistant est lue au démarrage du conteneur.
 RUN pnpm build
 
