@@ -1,9 +1,10 @@
-version: "3"
 services:
   portofolio:
-    image: tudorneagu90/portofolio:latest
+    # GHCR_REPO et la clé de l'assistant viennent du fichier .env écrit par le déploiement.
+    image: ghcr.io/${GHCR_REPO}:latest
     container_name: portofolio
     restart: unless-stopped
+    env_file: .env
     expose:
       - "80"
     networks:
