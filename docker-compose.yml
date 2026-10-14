@@ -8,8 +8,24 @@ services:
     expose:
       - "80"
     networks:
-      - nginx-proxy
+      - traefik-public
+    # Le Traefik du VPS (le même qu'ArchiZen) route le domaine et gère le certificat.
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portofolio.rule=Host(`tudorneagu.com`)"
+      - "traefik.http.routers.portofolio.entrypoints=websecure"
+      - "traefik.http.routers.portofolio.tls.certresolver=letsencrypt"
+      - "traefik.http.services.portofolio.loadbalancer.server.port=80"
+      # www renvoie vers le domaine nu.
+      - "traefik.http.routers.portofolio-www.rule=Host(`www.tudorneagu.com`)"
+      - "traefik.http.routers.portofolio-www.entrypoints=websecure"
+      - "traefik.http.routers.portofolio-www.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.portofolio-www.service=portofolio"
+      - "traefik.http.routers.portofolio-www.middlewares=portofolio-www-redirect"
+      - "traefik.http.middlewares.portofolio-www-redirect.redirectregex.regex=^https://www\\.tudorneagu\\.com/(.*)"
+      - "traefik.http.middlewares.portofolio-www-redirect.redirectregex.replacement=https://tudorneagu.com/$${1}"
+      - "traefik.http.middlewares.portofolio-www-redirect.redirectregex.permanent=true"
 
 networks:
-  nginx-proxy:
+  traefik-public:
     external: true
